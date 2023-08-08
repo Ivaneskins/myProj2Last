@@ -17,4 +17,17 @@ public class CarServiceImp implements CarService {
         }
         return cars;
     }
+
+    @Override
+    public List<Car> createListCars() {
+
+        List<Car> carsList = new ArrayList<>();
+        carsList.add(new Car("Ford", 2, 2010));
+        carsList.add(new Car("Lada", 1, 2020));
+        carsList.add(new Car("Citroen", 4, 2015));
+        carsList.add(new Car("Hyunday", 3, 2005));
+        carsList.add(new Car("BMV", 5, 2018));
+
+        return carsList;
+    }
 }

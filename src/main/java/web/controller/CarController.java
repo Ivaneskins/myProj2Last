@@ -16,21 +16,18 @@ import java.util.stream.Collectors;
 public class CarController {
 
     @Autowired
-    CarService carService;
+    private CarService carService;
 
     @GetMapping("cars")
     public String getCars(@RequestParam(value = "count", required = false) Integer count
             , Model model) {
-		List<Car> carsList = new ArrayList<>();
-        carsList.add(new Car("Ford", 2, 2010));
-        carsList.add(new Car("Lada", 1, 2020));
-        carsList.add(new Car("Citroen", 4, 2015));
-        carsList.add(new Car("Hyunday", 3, 2005));
-        carsList.add(new Car("BMV", 5, 2018));
+
+        List<Car> carsList = carService.createListCars();
 
         carsList = carService.getCarsWithCount(carsList, count);
 
         model.addAttribute("cars", carsList);
+
         return "cars";
     }
 }
